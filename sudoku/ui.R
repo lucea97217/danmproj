@@ -10,24 +10,49 @@
 library(shiny)
 
 # Define UI for application that draws a histogram
+#shinyUI(fluidPage(
+#    titlePanel("Exemple test"),
+#    sidebarPanel(
+#        numericInput(inputId="NumVar", label='Numéro de la variable :', min=1, max=4, value=1),
+#        sliderInput(inputId="NbCla", label="Nombre de classes :", min=2, max=30, value=10),
+#        radioButtons(inputId="Coul", label="Couleur de l’histogramme",
+#                       choices = c("Bleu foncé"="darkblue","Vert"="green","Rouge"="red","gris"="grey"), selected="green")
+#    ),
+#    mainPanel(
+#        verbatimTextOutput("sortie1"),
+#        plotOutput("sortie2")
+#    )
+#))
+
 shinyUI(fluidPage(
+    titlePanel("Sudoku"),
+    fluidRow(
+        column(
+            width = 12,
+            align = "center",
 
-    # Application title
-    titlePanel("Old Faithful Geyser Data"),
+            div(
+                rHandsontableOutput(
+                    outputId = "sortie3",
+                    width = "100%", height = "100%"
+                ),
 
-    # Sidebar with a slider input for number of bins
+                style = "margin: auto; width = 50%"
+            )
+        )
+    ),
+
     sidebarLayout(
         sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
+            actionButton(inputId = "load", label = "Load game"),
+            actionButton(inputId = "solve", label = "Solve")
         ),
 
-        # Show a plot of the generated distribution
-        mainPanel(
-            plotOutput("distPlot")
-        )
-    )
+    mainPanel(
+        h3("Sudoku Problem"),
+        plotOutput("plot"),
+        h3("Sudoku Solution"),
+        plotOutput("plot_solve")
+    ))
 ))
+
