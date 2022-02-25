@@ -1,34 +1,18 @@
 #
 # This is the server logic of a Shiny web application. You can run the
-# application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+
 
 library(shiny)
 
-# Define server logic required to draw a histogram
-#shinyServer(function(input, output) {
 
-    #output$sortie1 <- renderPrint({
-        #paste("La médiane vaut", median(iris[,input$NumVar]))
-    #})
-    #output$sortie2 <- renderPlot({
-        #x <- iris[,input$NumVar]
-        #Classes <- seq(min(x), max(x), length.out= input$NbCla + 1)
-       # hist(x, breaks = Classes, freq= F, col = input$Coul)
-   # })
+shinyServer(function(input, output, session) {
 
-#})
-
-shinyServer(function(input, output) {
-
+    # Definition fonction sudoku
     tsudoku <- function(seed=NULL, attempt=1, ultimate=F, iterate=T){
 
-        blocks <- list() # Create a list of blocks that cannot share set elements.
+        blocks <- list() # Creation d'une liste de base pour mettre en place le sudoku
 
+        #Initilatisation sudoku
         blocks$rows <- matrix(rep(1:9, times=9), nrow=9,ncol=9)
         blocks$cols <- matrix(rep(1:9, each=9), nrow=9,ncol=9)
 
@@ -82,6 +66,35 @@ shinyServer(function(input, output) {
     s1 <- tsudoku() # This usually takes between 50-500 attempts
     # It gives up before
 
+    # Ultimate sudoku in which each respective square in the 3x3 grid
+    # cannot share a value with any other 3x3 grid of the same place is
+    # much harder to solve and usually takes between 3k and 10k attempts
+    # before finding a solution. 20-30 seconds
+    s2="Fail"
+    attempt = 0
+    while (length(s2)==1) {
+        s2 <- tsudoku(ultimate=T, iterate=F)
+        attempt = attempt+1
+    }
+
+    print.sudoku <- function(sudo) {
+        if (!is.null(sudo$ultimate)) cat(paste0("ultimate=",sudo$ultimate,"\n"))
+        print("sgrid")
+        print(sudo$sgrid)
+        if (!is.null(sudo$mgrid)) {
+            print("mgrid")
+            print(sudo$mgrid)
+        }
+        # If problem has been solved, insert solution
+        if (!is.null(sudo$fgrid)) {
+            print("fgrid")
+            print(sudo$fgrid)
+        }
+        if (!is.null(sudo$s0steps)) {
+            print("s0steps")
+            print(sudo$s0steps)
+        }
+    }
 
     # Define a plot function for sudoku
     plot.sudoku <- function(sudo, mar=rep(0,4), axes=F, labels=F) {
@@ -170,8 +183,9 @@ shinyServer(function(input, output) {
 
     # Control the difficulty of the tables by setting the inference mean
     # The higher the number the more spaces there will be.
-    s1 <- sudo.gaps(s1, inference.mean=1, inference.max=2)
-
+    # We can see that ultimate sudoku has a few more missing spaces for
+    # the mean inference because inference can be made using 4 dimensions rather
+    # than 3.
 
     solver.sudoku <- function(sudo, ...) {
         mgrid <- sudo[["mgrid"]]
@@ -237,25 +251,59 @@ shinyServer(function(input, output) {
 
     ss1 <- solver.sudoku(s1, noisily=T)
 
+    s2 <- sudo.gaps(s2, inference.mean=1.25, inference.max=2)
+
+    ss2 <- solver.sudoku(s2, noisily=T)
+
+
 
     observeEvent(input$load,{
 
         output$plot <- renderPlot({
 
-            input$loaf
-            x <- isolate(s1)
-            plot(x)
-        })
+            if(s2=="Fail"){
+                plot(s1)
+            }
+            else{
+                plot(s2)
+            }
+
+    })
+        if(attempt < 500){
+            output$txt <- renderText(
+                "niveau Facile"
+
+            )
+        }
+        else if(attempt>= 500 &attempt<=1800){
+            output$txt <- renderText(
+                "niveau Facile"
+
+            )
+        }
+
+        else if(attempt > 1800){
+            output$txt <- renderText(
+                "niveau difficile"
+
+            )
+        }
 
     })
 
     observeEvent(input$solve,{
 
         output$plot_solve <- renderPlot({
-            plot(ss1)
+            if(s2=="Fail"){
+                plot(ss1)
+            }
+            else{
+                plot(ss2)
+            }
         })
         })
 
 })
+
 
 

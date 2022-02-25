@@ -45,7 +45,8 @@ shinyUI(fluidPage(
 
             # load game to trigger reactivity
             actionButton(inputId = "load", label = "Load game"),
-            actionButton(inputId = "solve", label = "Solve")
+            actionButton(inputId = "solve", label = "Solve"),
+            actionButton("refresh", "Refresh")
         ),
 
         # Show a plot of the generated distribution

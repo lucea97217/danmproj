@@ -266,3 +266,5 @@ plot(s2)
 
 ss2 <- solver.sudoku(s2, noisily=T)
 plot(ss2, labels=T)
+attempt
+
