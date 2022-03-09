@@ -28,7 +28,11 @@ shinyUI(fluidPage(theme = shinytheme("darkly"),
             actionButton(inputId = "solve", label = "Solve"),
             hr(),
             verbatimTextOutput("txt"),
+            checkboxGroupInput("Diff", label = h3("Difficulté"),
+                               choices = list("Facile" = 1, "Avancé" = 2),
+                               selected = 1),
             hr(),
+
             img(src = "rat.jpg", height = 500, width = 400)
         ),
 
@@ -40,5 +44,5 @@ shinyUI(fluidPage(theme = shinytheme("darkly"),
         plotOutput("plot_solve")
 
     ))
-))
-
+)
+)
