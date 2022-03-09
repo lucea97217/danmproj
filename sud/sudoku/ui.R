@@ -21,19 +21,22 @@ shinyUI(fluidPage(theme = shinytheme("darkly"),
     headerPanel("Sudoku Danmproj"),
     sidebarLayout(
         sidebarPanel(
+            h4("Générer votre sudoku"),
             actionButton(inputId = "load", label = "Load game"),
+            hr(),
+            h4("Afficher la solution"),
             actionButton(inputId = "solve", label = "Solve"),
+            hr(),
             verbatimTextOutput("txt"),
+            hr(),
             img(src = "rat.jpg", height = 500, width = 400)
-
-
         ),
 
 
     mainPanel(
-        h3("Sudoku Problem"),
+        h3("Sudoku"),
         plotOutput("plot"),
-        h3("Sudoku Solution"),
+        h3("Solution"),
         plotOutput("plot_solve")
 
     ))
