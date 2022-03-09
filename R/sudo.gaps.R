@@ -1,5 +1,10 @@
 
-# Fonction génératrice des cases vides
+#' Fonction génératrice des cases vides
+#' @param sudo notre sudoku
+#' @param inference.mean nombre moyen de blancs
+#' @param inference.max pour le nombre max de blancs
+#' @return Matrice
+
 sudo.gaps <- function(sudo, inference.mean=1.25, inference.max=2) {
   sgrid <- sudo$sgrid       # valeurs manquantes à la grille
   mgrid <- igrid <- sgrid*0

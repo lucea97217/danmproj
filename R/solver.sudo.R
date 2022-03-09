@@ -1,3 +1,6 @@
+#' Fonction resolution sudoku
+#' @param sudo notre sudoku
+#' @return Matrice
 
 # Control the difficulty of the tables by setting the inference mean
 # The higher the number the more spaces there will be.

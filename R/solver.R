@@ -1,3 +1,6 @@
+#' Fonction resolution sudoku
+#' @param sgrid grille sudoku
+#' @return Matrice
 
 solver <- function(sgrid, mgrid=NULL, noisily=F, blocks=list(), smatch=10, ultimate=F) {
   if (length(blocks)==0) { # If blocks is empty fill it

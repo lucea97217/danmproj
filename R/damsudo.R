@@ -1,3 +1,7 @@
+#' Fonction génératrice de sudoku
+#' @param seed
+#' @param attempt compteur
+#' @return Matrice
 
 danmsudo <- function(seed=NULL, attempt=1, ultimate=F, iterate=T){
 
