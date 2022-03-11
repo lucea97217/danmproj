@@ -2,6 +2,7 @@
 
 library(shiny)
 library(shinyjs)
+library(shinydashboard)
 devtools::load_all()
 shinyServer(function(input, output, session) {
 
@@ -18,8 +19,9 @@ shinyServer(function(input, output, session) {
         }
 
         sudo <- sudo.gaps(sudo)
-        ssudo <- solver.sudoku(sudo, noisily=T)
+        ssudo <- solver.sudoku(sudo)
         output$plot <- renderPlot({
+            Sys.sleep(4) # system sleeping for 3 seconds for demo purpose
             plot(sudo)
 
     })
@@ -27,23 +29,23 @@ shinyServer(function(input, output, session) {
 
             output$plot_solve <- renderPlot({
 
-                plot.sudoku(ssudo)
+                plot(ssudo)
             })
         })
-        if(attempt < 500){
+        if(attempt < 1500){
             output$txt <- renderText(
                 "niveau Facile"
 
             )
         }
-        else if(attempt>= 500 &attempt<=1800){
+        else if(attempt>= 1500 &attempt<=2500){
             output$txt <- renderText(
-                "niveau Facile"
+                "niveau Moyen"
 
             )
         }
 
-        else if(attempt > 1800){
+        else if(attempt > 2500){
             output$txt <- renderText(
                 "niveau difficile"
 

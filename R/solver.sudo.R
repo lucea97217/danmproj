@@ -8,13 +8,15 @@
 # the mean inference because inference can be made using 4 dimensions rather
 # than 3.
 
-solver.sudoku <- function(sudo, ...) {
+solver.sudoku <- function(sudo,...) {
   mgrid <- sudo[["mgrid"]]
   tigrid <- sgrid <- fgrid <- mgrid*0
 
   sgrid[!mgrid] <- sudo[["sgrid"]][!mgrid]
 
   blocks <- sudo[["blocks"]]
+
+
 
   solver(sgrid=sgrid, mgrid=mgrid, blocks=blocks, ultimate=sudo$ultimate, ...)
 }

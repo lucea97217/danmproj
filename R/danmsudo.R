@@ -1,6 +1,8 @@
 #' Fonction génératrice de sudoku
 #' @param seed
 #' @param attempt compteur
+#' @param ultimate pour accentuer la teinte foncée de certaines cases
+#' @param iterate On regarde si notre sudoku est solvable
 #' @return Matrice
 
 danmsudo <- function(seed=NULL, attempt=1, ultimate=F, iterate=T){
@@ -20,6 +22,7 @@ danmsudo <- function(seed=NULL, attempt=1, ultimate=F, iterate=T){
   #élément qu'un des autres carrées occupant le même espace
   casudo <- function(x) rep(rep(x),3)
 
+  #coloration case
   if (ultimate)
   {blocks$ultimate <- matrix(c(casudo(1:3), casudo(4:6), casudo(7:9)), nrow=9,ncol=9)}
 
