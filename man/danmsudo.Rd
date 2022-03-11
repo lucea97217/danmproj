@@ -8,6 +8,10 @@ danmsudo(seed = NULL, attempt = 1, ultimate = F, iterate = T)
 }
 \arguments{
 \item{attempt}{compteur}
+
+\item{ultimate}{pour accentuer la teinte foncée de certaines cases}
+
+\item{iterate}{On regarde si notre sudoku est solvable}
 }
 \value{
 Matrice
