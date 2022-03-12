@@ -15,6 +15,16 @@ solver(
 }
 \arguments{
 \item{sgrid}{grille sudoku}
+
+\item{mgrid}{.}
+
+\item{noisily}{.}
+
+\item{blocks}{.}
+
+\item{smatch}{.}
+
+\item{ultimate}{.}
 }
 \value{
 Matrice

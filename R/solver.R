@@ -1,5 +1,10 @@
 #' Fonction resolution sudoku
 #' @param sgrid grille sudoku
+#' @param mgrid .
+#' @param noisily .
+#' @param blocks .
+#' @param smatch .
+#' @param ultimate .
 #' @return Matrice
 
 solver <- function(sgrid, mgrid=NULL, noisily=F, blocks=list(), smatch=10, ultimate=F) {

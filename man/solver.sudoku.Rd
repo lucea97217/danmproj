@@ -8,6 +8,8 @@ solver.sudoku(sudo, ...)
 }
 \arguments{
 \item{sudo}{notre sudoku}
+
+\item{...}{appel à la fonction solver. voir help(solver)}
 }
 \value{
 Matrice

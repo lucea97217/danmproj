@@ -18,7 +18,7 @@ shinyServer(function(input, output, session) {
             attempt = attempt+1
         }
 
-        sudo <- sudo.gaps(sudo)
+        sudo <- blanc(sudo)
         ssudo <- solver.sudoku(sudo)
         output$plot <- renderPlot({
             Sys.sleep(4) # system sleeping for 3 seconds for demo purpose

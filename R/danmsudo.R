@@ -1,5 +1,5 @@
 #' Fonction génératrice de sudoku
-#' @param seed
+#' @param seed aléa création sudoku
 #' @param attempt compteur
 #' @param ultimate pour accentuer la teinte foncée de certaines cases
 #' @param iterate On regarde si notre sudoku est solvable

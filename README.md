@@ -1,9 +1,10 @@
 # DANMPROJ
+
 ## EDITEURS:
 
-__LUCEA__ __LENNY__
+**LUCEA** **LENNY**
 
-__LARCHEVEQUE__ __Valentin__
+**LARCHEVEQUE** **Valentin**
 
 ## POINTS PRINCIPAUX DU PROJET
 
@@ -13,6 +14,8 @@ Bienvenue dans notre monde ! Nous avons essayé au mieux de modéliser un probl�
 
 Nous espérons que le programme sera à votre goût.
 
+Vous pouvez directement installer notre package en utilisant la commande:
 
+> **devtools::install_github("danmproj/lenny97217")**
 
-<img src="https://raw.githubusercontent.com/lucea97217/danmproj/main/www/tumblr_nrzvmyIdCo1qece2io1_1280-340x260.jpg" width="700" />
+<img src="https://raw.githubusercontent.com/lucea97217/danmproj/main/www/tumblr_nrzvmyIdCo1qece2io1_1280-340x260.jpg" width="700"/>

@@ -7,6 +7,8 @@
 danmsudo(seed = NULL, attempt = 1, ultimate = F, iterate = T)
 }
 \arguments{
+\item{seed}{aléa création sudoku}
+
 \item{attempt}{compteur}
 
 \item{ultimate}{pour accentuer la teinte foncée de certaines cases}

@@ -1,5 +1,6 @@
 #' Fonction resolution sudoku
 #' @param sudo notre sudoku
+#' @param ... appel à la fonction solver. voir help(solver)
 #' @return Matrice
 
 # Control the difficulty of the tables by setting the inference mean
