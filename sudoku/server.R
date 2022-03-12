@@ -13,6 +13,7 @@ shinyServer(function(input, output, session) {
         sudo = "Fail"
         attempt = 0
         output$x = renderText( input$Diff)
+
         while (length(sudo)==1) {
             sudo <- danmsudo(ultimate=T, iterate=F)
             attempt = attempt+1

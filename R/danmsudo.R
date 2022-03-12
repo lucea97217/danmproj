@@ -54,7 +54,6 @@ danmsudo <- function(seed=NULL, attempt=1, ultimate=F, iterate=T){
   # On pose un compteur
   if (fail) {
     if (iterate) {
-      cat(paste("Attempt",attempt,"failed\n"))
       return(danmsudo(attempt=attempt+1, ultimate=ultimate, iterate=iterate))
     }
     if (!iterate) return("Fail")

@@ -2,7 +2,7 @@
 % Please edit documentation in R/solver.sudo.R
 \name{solver.sudoku}
 \alias{solver.sudoku}
-\title{Fonction resolution sudoku}
+\title{Sous fonction de solver servant à afficher la solution finale}
 \usage{
 solver.sudoku(sudo, ...)
 }
@@ -15,5 +15,5 @@ solver.sudoku(sudo, ...)
 Matrice
 }
 \description{
-Fonction resolution sudoku
+Sous fonction de solver servant à afficher la solution finale
 }

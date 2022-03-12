@@ -2,33 +2,22 @@
 % Please edit documentation in R/solver.R
 \name{solver}
 \alias{solver}
-\title{Fonction resolution sudoku}
+\title{Fonction resolution sudoku.}
 \usage{
-solver(
-  sgrid,
-  mgrid = NULL,
-  noisily = F,
-  blocks = list(),
-  smatch = 10,
-  ultimate = F
-)
+solver(sgrid, mgrid = NULL, blocks = list(), ultimate = F)
 }
 \arguments{
 \item{sgrid}{grille sudoku}
 
-\item{mgrid}{.}
+\item{mgrid}{matrice génératrice des blancs}
 
-\item{noisily}{.}
+\item{blocks}{bloques de sudoku sous forme de liste}
 
-\item{blocks}{.}
-
-\item{smatch}{.}
-
-\item{ultimate}{.}
+\item{ultimate}{Outil pour la fonction solver.sudo}
 }
 \value{
 Matrice
 }
 \description{
-Fonction resolution sudoku
+Fonction resolution sudoku.
 }
