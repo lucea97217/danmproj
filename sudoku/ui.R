@@ -23,6 +23,7 @@ shinyUI(fluidPage(theme = shinytheme("darkly"),
 
     "))
                   ),
+#------------------ Slider Panel ----------------------------
     headerPanel("Sudoku Danmproj"),
     sidebarLayout(
         sidebarPanel(
@@ -32,7 +33,9 @@ shinyUI(fluidPage(theme = shinytheme("darkly"),
             img(src = "rat.jpg", height = 500, width = 400)
         ),
 
+#-------------- -------------------------------------
 
+#---------------------- page principale --------------------
     mainPanel(
       tags$head(
         tags$style(HTML("
@@ -48,7 +51,8 @@ shinyUI(fluidPage(theme = shinytheme("darkly"),
     "))
       ),
         h3("Sudoku"),
-      # Javasript Code
+
+#-------------- mise en place du chien loading --------------
         singleton(tags$head(HTML("
 <script type='text/javascript'>
 
@@ -103,9 +107,7 @@ $('div#divLoading').removeClass('show');
   }
 
 </style>")))),
-
-                      # HTML Code
-
+# ----------------------------- action buttons -----------------------
                       tags$body(HTML("<div id='divLoading'> </div>")),
                           plotOutput('plot', width = "800px", height = "450px"),
 

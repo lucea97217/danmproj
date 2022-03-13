@@ -16,6 +16,9 @@ shinyServer(function(input, output, session) {
     # Comme demandé dans l'énoncé du tp nous nous fixons à attempt pour étudier la difficulté
     # Mais nous pouvions très bien procéder autrement.
     observeEvent(input$load,{
+
+        # initialisation sudoku
+
         sudo <- danmsudo()
         sudo = "Fail"
         attempt = 0
@@ -23,20 +26,26 @@ shinyServer(function(input, output, session) {
             sudo <- danmsudo(ultimate= T, retry=F)
             attempt = attempt+1
         }
-        sudo <- blanc(sudo)
-        ssudo <- solver.sudoku(sudo)
+
+        sudo <- blanc(sudo) # mise en place des blancs
+        ssudo <- solver.sudoku(sudo) #solution
+
+
+
         output$plot <- renderPlot({
-            Sys.sleep(4) # system sleeping for 3 seconds for demo purpose
-            plot(sudo)
+            Sys.sleep(4) # affichage du chien
+            plot(sudo) # Affichage du problème
 
     })
         observeEvent(input$solve,{
 
             output$plot_solve <- renderPlot({
 
-                plot(ssudo)
+                plot(ssudo) # solution
             })
         })
+
+        #Définition de la difficulté en fonction du backtracking
         if(attempt < 1500){
             output$txt <- renderText(
                 "niveau Facile"

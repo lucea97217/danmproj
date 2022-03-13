@@ -13,7 +13,7 @@ blanc <- function(sudo, freq.mean=1.25, freq.max=2) {
 
 
   blocks <- sudo$blocks
-  #freq étant le nombre d'emplacements manquants d'un carré\d'unne grille particulier
+  #freq étant le nombre d'emplacements manquants d'un carré d'une grille particulier
   #après avoir pris en compte tous les carrés qui se chevauchent
 
   # Ici nous créons un "sudoku" temporaire

@@ -1,7 +1,7 @@
 #' Fonction génératrice de sudoku
 #' @param seed aléa création sudoku
 #' @param attempt compteur
-#' @param ultimate Pour augmenter le niveau de difficulter , si = F le sudoku sera forcément de niveau facile.
+#' @param ultimate avec ultimate = F le programme abandonne rapidement on ne trouve pas forcément de solution complète.
 #' @param retry On regarde si notre sudoku est solvable
 #' @return Matrice
 
