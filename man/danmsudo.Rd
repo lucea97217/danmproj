@@ -4,16 +4,16 @@
 \alias{danmsudo}
 \title{Fonction génératrice de sudoku}
 \usage{
-danmsudo(seed = NULL, attempt = 1, ultimate = F, iterate = T)
+danmsudo(seed = NULL, attempt = 1, ultimate = F, retry = T)
 }
 \arguments{
 \item{seed}{aléa création sudoku}
 
 \item{attempt}{compteur}
 
-\item{ultimate}{pour accentuer la teinte foncée de certaines cases}
+\item{ultimate}{Pour augmenter le niveau de difficulter , si = F le sudoku sera forcément de niveau facile.}
 
-\item{iterate}{On regarde si notre sudoku est solvable}
+\item{retry}{On regarde si notre sudoku est solvable}
 }
 \value{
 Matrice

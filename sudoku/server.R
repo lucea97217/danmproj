@@ -19,13 +19,10 @@ shinyServer(function(input, output, session) {
         sudo <- danmsudo()
         sudo = "Fail"
         attempt = 0
-        output$x = renderText( input$Diff)
-
         while (length(sudo)==1) {
-            sudo <- danmsudo(ultimate=T, iterate=F)
+            sudo <- danmsudo(ultimate= T, retry=F)
             attempt = attempt+1
         }
-
         sudo <- blanc(sudo)
         ssudo <- solver.sudoku(sudo)
         output$plot <- renderPlot({

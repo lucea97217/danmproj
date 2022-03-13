@@ -1,11 +1,11 @@
 #' Fonction génératrice de sudoku
 #' @param seed aléa création sudoku
 #' @param attempt compteur
-#' @param ultimate pour accentuer la teinte foncée de certaines cases
-#' @param iterate On regarde si notre sudoku est solvable
+#' @param ultimate Pour augmenter le niveau de difficulter , si = F le sudoku sera forcément de niveau facile.
+#' @param retry On regarde si notre sudoku est solvable
 #' @return Matrice
 
-danmsudo <- function(seed=NULL, attempt=1, ultimate=F, iterate=T){
+danmsudo <- function(seed=NULL, attempt=1, ultimate=F, retry=T){
 
   blocks <- list() # Creation d'une liste de base pour mettre en place le sudoku
 
@@ -53,10 +53,10 @@ danmsudo <- function(seed=NULL, attempt=1, ultimate=F, iterate=T){
   # On observe si notre algo trouve une solution
   # On pose un compteur
   if (fail) {
-    if (iterate) {
-      return(danmsudo(attempt=attempt+1, ultimate=ultimate, iterate=iterate))
+    if (retry) {
+      return(danmsudo(attempt=attempt+1, ultimate=ultimate, retry=retry))
     }
-    if (!iterate) return("Fail")
+    if (!retry) return("Fail")
   } else {
     returner <- list(sgrid=sgrid, blocks=blocks, ultimate=ultimate, attempt=attempt)
     class(returner) <- "sudoku"
